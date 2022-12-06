@@ -36,7 +36,8 @@ class LinguagemController extends Controller
     }
 
     public function coisa()
-    { 
+    {
+        $variavelLegal = 'brasil';
         return 'coisa';
     }
 }
