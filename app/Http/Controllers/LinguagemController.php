@@ -35,4 +35,8 @@ class LinguagemController extends Controller
         Linguagem::destroy($id);
     }
 
+    public function coisa()
+    { 
+        return 'coisa';
+    }
 }
