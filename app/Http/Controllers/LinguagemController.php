@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Linguagem;
-use App\Models\Teste;
 use Illuminate\Http\Request;
 
 class LinguagemController extends Controller
@@ -18,6 +17,16 @@ class LinguagemController extends Controller
     public function store(Request $request)
     {
         return Linguagem::create($request->all());
+    }
+
+    public function update(int $id,Request $request)
+    {
+
+        $linguagem = Linguagem::find($id);
+        $linguagem->fill($request->all());
+        $linguagem->save();
+
+        return $linguagem;
     }
 
 
