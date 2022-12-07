@@ -24,7 +24,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     // Linguagem
     $router->group(['prefix' => 'linguagem'], function () use ($router) {
         $router->get('', 'LinguagemController@index');
+        $router->get('{id}', 'LinguagemController@show');
         $router->post('', 'LinguagemController@store');
+        $router->put('{id}', 'LinguagemController@update');
         $router->delete('{id}', 'LinguagemController@delete');
     });
 
