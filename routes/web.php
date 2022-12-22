@@ -35,6 +35,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->get('', 'UserController@index');
     });
 
+    // Teste simples de commit (paulo ricardo)
+    $router->get('/teste','TesteController@teste');
 });
 
 
