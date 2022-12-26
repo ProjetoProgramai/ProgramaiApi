@@ -37,6 +37,22 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     // Teste simples de commit (paulo ricardo)
     $router->get('/teste','TesteController@teste');
+
+    // matematica
+    $router->group(['prefix' => 'mat'], function () use ($router) {
+        $router->get('{teste}', 'MatematicaController@retornaAlgo');
+        $router->post('', 'MatematicaController@somaAlgo');
+        $router->post('/soma', 'MatematicaController@somaAlgoNovo');
+        // media (paulo ricardo)
+        $router->post('/media', 'MatematicaController@media4valores');
+    });
+    // formulario
+    $router->group(['prefix' => 'formulario'], function () use ($router) {
+        $router->get('', 'FormularioController@index');
+        $router->get('{id}', 'FormularioController@show');
+        $router->post('/salvar', 'FormularioController@salvaTabela');
+
+    });
 });
 
 
