@@ -17,9 +17,10 @@ $router->get('/', function () use ($router) {
     return 'Projeto Programai';
 });
 
+$router->post('/api/login', 'TokenController@gerarToken');
 
 // grupo api ...
-$router->group(['prefix' => 'api'], function () use ($router) {
+$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
 
     // Linguagem
     $router->group(['prefix' => 'linguagem'], function () use ($router) {
@@ -33,6 +34,13 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     // usuarios
     $router->group(['prefix' => 'users'], function () use ($router) {
         $router->get('', 'UserController@index');
+    });
+
+    // matematics
+    $router->group(['prefix' => 'mat'], function () use ($router) {
+        $router->get('{teste}', 'MatematicaController@retornaAlgo');
+        $router->post('', 'MatematicaController@somaAlgo');
+        $router->post('/soma', 'MatematicaController@somaAlgoNovo');
     });
 
 });
