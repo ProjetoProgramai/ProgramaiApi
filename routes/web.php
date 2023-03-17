@@ -55,6 +55,7 @@ $router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($ro
         $router->post('/salvar', 'FormularioController@salvaTabela');
 
     });
+    // teste
 });
 
 
